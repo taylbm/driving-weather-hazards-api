@@ -1,5 +1,11 @@
 # driving-weather-hazards-api
 
+Retrieves Route Weather Guidance for a particular road route using the NAM-3km CONUS model https://www.pivotalweather.com/model.php?m=nam4km
+
+## API Specifications
+
+See [Swagger YAML API Spec](routewx-ios-rest-api-v1-swagger-apigateway.yaml)
+
 ## TypeScript Example
 
 See [fetchRoute](fetchRoute.ts) example TypeScript function
