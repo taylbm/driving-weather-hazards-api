@@ -6,7 +6,9 @@ If a departure time is not provided, the current time is assumed.
 ## Example Request with Lat, Lon and Departure Time:
 `curl -X GET "https://directions.routewx.com/directions?start=38.1,-101.2&end=37.4,-103.5&departure_time=1649289600" -H "accept: application/json" -H "x-api-key: API_KEY_HERE"`
 
-Example Response:
+## Example Response:
+```json
+
 {
   "message": "Success", 
   "polylines": [
@@ -51,3 +53,4 @@ Example Response:
    "southwest": {"lat": 39.7411913, "lng": -105.0861139}
  }
 }
+```
