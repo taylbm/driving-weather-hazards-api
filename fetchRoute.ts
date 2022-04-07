@@ -9,7 +9,7 @@ export async function fetchRoute(
   const x = await fetch(url, {
     method: 'GET',
     headers: {
-      'x-api-key': '2E8RT6KZQo7OUEPakTOMO2XKgGQrC7s71UjfT9l2',
+      'x-api-key': 'INSERT_API_KEY_HERE',
     },
   }).then((resp) => resp.json())
 
