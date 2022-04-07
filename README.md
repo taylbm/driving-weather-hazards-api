@@ -2,7 +2,7 @@
 
 ## TypeScript Example
 
-See [a fetchRoute](fetchRoute.ts)
+See [fetchRoute](fetchRoute.ts) example TypeScript function
 
 
 ## Example Request with City, State and default Departure Time:
