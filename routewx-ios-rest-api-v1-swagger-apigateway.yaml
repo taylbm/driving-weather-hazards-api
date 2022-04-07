@@ -1,0 +1,162 @@
+---
+swagger: "2.0"
+info:
+  description: "Weather Hazards for Driving Directions API by RouteWx"
+  version: "2022-04-07T16:19:26Z"
+  title: "routewx-ios-rest-api"
+  contact:
+    name: "Brandon Taylor"
+    email: "brandontaylor42@gmail.com"
+host: "directions.routewx.com"
+schemes:
+- "https"
+paths:
+  /directions:
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestTemplates:
+          application/json: "{\"statusCode\": 200}"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+    x-amazon-apigateway-any-method:
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:991454935152:function:routewx-ios-prod/invocations"
+        responses:
+          default:
+            statusCode: "200"
+        passthroughBehavior: "when_no_match"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws_proxy"
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "x-api-key"
+    in: "header"
+definitions:
+  Empty:
+    type: "object"
+    title: "Empty Schema"
+x-amazon-apigateway-documentation:
+  version: "1.2"
+  createdDate: "2022-04-07T16:23:43Z"
+  documentationParts:
+  - location:
+      type: "API"
+    properties:
+      info:
+        description: "Weather Hazards for Driving Directions API by RouteWx"
+        contact:
+          name: "Brandon Taylor"
+          email: "brandontaylor42@gmail.com"
+  - location:
+      type: "METHOD"
+      path: "/directions"
+      method: "GET"
+    properties:
+      description: "Returns array of route segments as JSON, start and end lat/lon\
+        \ coordinates, weather hazard level (green, yellow, red), temperature (deg\
+        \ F), probability of frozen precipitation, 1 hour precipitation amount (inches),\
+        \ and wind gusts (mph)."
+  - location:
+      type: "MODEL"
+      name: "RouteWeatherHazards"
+    properties:
+      $schema: "http://json-schema.org/draft-04/schema#"
+      title: "RouteWeatherHazards"
+      type: "object"
+      properties:
+        message:
+          type: "string"
+        polylines:
+          type: "array"
+          items:
+            type: "object"
+            properties:
+              coords:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    lat:
+                      type: "number"
+                    lng:
+                      type: "number"
+              hazard_level:
+                type: "string"
+              temp:
+                type: "integer"
+              precip:
+                type: "number"
+              frozen_precip:
+                type: "number"
+              prog_date_epoch:
+                type: "integer"
+              gust:
+                type: "integer"
+  - location:
+      type: "QUERY_PARAMETER"
+      path: "/directions"
+      method: "GET"
+      name: "departure_time"
+    properties:
+      description: "Departure time, specified as a UNIX timestamp (epoch), or number\
+        \ of seconds elapsed since January 1, 1970. Timezone is UTC."
+  - location:
+      type: "QUERY_PARAMETER"
+      path: "/directions"
+      method: "GET"
+      name: "end"
+    properties:
+      description: "Route ending point (specified as lat/lon pair) i.e. start=41.43206,-81.38992.\
+        \ Any decimal precision is allowable and will be honored"
+  - location:
+      type: "QUERY_PARAMETER"
+      path: "/directions"
+      method: "GET"
+      name: "start"
+    properties:
+      description: "Route starting point (specified as lat/lon pair) i.e. start=41.43206,-81.38992.\
+        \ Any decimal precision is allowable and will be honored"
+  - location:
+      type: "RESOURCE"
+      path: "/directions"
+    properties:
+      description: "Main endpoint for retrieving route weather guidance for a particular\
+        \ route"
+x-amazon-apigateway-gateway-responses:
+  DEFAULT_5XX:
+    responseTemplates:
+      application/json: "{\"message\":$context.error.messageString}"
