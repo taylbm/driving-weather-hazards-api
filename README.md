@@ -2,7 +2,8 @@
 
 ## TypeScript Example
 
-See fetchRoute.ts
+See [a fetchRoute](fetchRoute.ts)
+
 
 ## Example Request with City, State and default Departure Time:
 `curl -X GET "https://directions.routewx.com/directions?start=Ft.Collins,CO&end=Denver,CO" -H "accept: application/json" -H "x-api-key: API_KEY_HERE"`
