@@ -1,5 +1,9 @@
 # driving-weather-hazards-api
 
+## TypeScript Example
+
+See fetchRoute.ts
+
 ## Example Request with City, State and default Departure Time:
 `curl -X GET "https://directions.routewx.com/directions?start=Ft.Collins,CO&end=Denver,CO" -H "accept: application/json" -H "x-api-key: API_KEY_HERE"`
 If a departure time is not provided, the current time is assumed.
