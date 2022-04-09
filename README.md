@@ -4,6 +4,12 @@
 * Serves as the backend for the RouteWx iOS App: https://apps.apple.com/us/app/routewx/id1551376145
 * A free, PWA (Progressive Web App) version of RouteWx can be found here: https://www.routewx.com/demo
 
+## Get Access through the Swift Weather API Portal
+
+https://api-portal.swiftweather.co/getting-started
+
+Register to get an API Key for free!
+
 ## API Specifications
 
 See [Swagger YAML API Spec](routewx-ios-rest-api-v1-swagger-apigateway.yaml)
