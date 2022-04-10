@@ -2,30 +2,25 @@
 
 * Retrieves Route Weather Guidance for a particular road route using the NAM-3km CONUS model https://www.pivotalweather.com/model.php?m=nam4km
 * Serves as the backend for the RouteWx iOS App: https://apps.apple.com/us/app/routewx/id1551376145
-* A free, PWA (Progressive Web App) version of RouteWx can be found here: https://www.routewx.com/demo
+* A free, PWA (Progressive Web App) version of RouteWx can be found here: https://www.routewx.com/demo.html
 
-## Get Access through the Swift Weather API Portal
+## Register for an API Key
 
-https://api-portal.swiftweather.co/getting-started
+https://api.swiftweather.co/getting-started
 
 Register to get an API Key for free!
 
-## API Specifications
-
-See [Swagger YAML API Spec](routewx-ios-rest-api-v1-swagger-apigateway.yaml)
-
-## TypeScript Example
+## TypeScript API Request Example
 
 See [fetchRoute](fetchRoute.ts) example TypeScript function
 
-
-## Example Request with City, State and default Departure Time:
+## curl API Request Example with City, State and default Departure Time:
 `curl -X GET "https://directions.routewx.com/directions?start=Ft.Collins,CO&end=Denver,CO" -H "accept: application/json" -H "x-api-key: API_KEY_HERE"`
 If a departure time is not provided, the current time is assumed.
-## Example Request with Lat, Lon and Departure Time:
+## curl API Request Example with Lat, Lon and Departure Time:
 `curl -X GET "https://directions.routewx.com/directions?start=38.1,-101.2&end=37.4,-103.5&departure_time=1649289600" -H "accept: application/json" -H "x-api-key: API_KEY_HERE"`
 
-## Example Response:
+## Example JSON Response:
 ```json
 
 {
@@ -73,3 +68,7 @@ If a departure time is not provided, the current time is assumed.
  }
 }
 ```
+
+## API Specifications
+
+See [Swagger YAML API Spec](routewx-ios-rest-api-v1-swagger-apigateway.yaml)
