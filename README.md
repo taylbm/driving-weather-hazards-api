@@ -1,6 +1,6 @@
 # driving-weather-hazards-api
 
-* Retrieves Route Weather Guidance for a particular road route using the NAM-3km CONUS model https://www.pivotalweather.com/model.php?m=nam4km
+* Retrieves Route Weather Guidance for a particular road route using the NAM-3km CONUS model from NOMADS: https://nomads.ncep.noaa.gov/cgi-bin/filter_nam_conusnest.pl
 * Serves as the backend for the RouteWx iOS App: https://apps.apple.com/us/app/routewx/id1551376145
 * A free, PWA (Progressive Web App) version of RouteWx can be found here: https://www.routewx.com/demo.html
 
